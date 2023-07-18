@@ -1,6 +1,5 @@
 import 'package:Daylog/db/student_db/studentdb.dart';
 import 'package:flutter/material.dart';
-import '../attendance/date_attendance.dart';
 import '../batch/home.dart';
 import './liststudent.dart';
 import './addstudent.dart';

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../widgets/ElevatedButton.dart';
-import './login.dart';
 import 'batch/home.dart';
 
 class WelcomeScreen extends StatefulWidget {

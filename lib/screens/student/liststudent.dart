@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import '../../models/student_model.dart';
 import '../../db/student_db/studentdb.dart';
 import 'display_student.dart';
@@ -13,82 +14,109 @@ class ListStudentScreen extends StatelessWidget {
     return ValueListenableBuilder(
       valueListenable: studentListNotifier,
       builder: (context, List<student_model> studentList, Widget? _) {
-        return ListView.separated(
-          itemBuilder: (context, index) {
-            List<String> names = [];
+        return Material(
+          color: Colors.white,
+          child: studentList.isNotEmpty
+              ? ListView.separated(
+                  itemBuilder: (context, index) {
+                    List<String> names = [];
 
-            for (var student in studentList) {
-              names.add(student.student_name);
-            }
-            print(names);
-            final data = studentList[index];
-            return Padding(
-              padding: const EdgeInsets.only(left: 80.0, right: 80.0),
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.03,
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30.0),
-                      color: Color.fromARGB(255, 216, 214, 214),
-                    ),
-                    child: ListTile(
-                      leading: CircleAvatar(
-                        backgroundColor: Colors.teal,
-                        child: Text(
-                          data.register_number.toString(),
-                          style: TextStyle(
-                            fontSize: 16, // Set the desired font size
-                            fontWeight:
-                                FontWeight.bold, // Set the desired font weight
-                            color: Colors.white,
+                    for (var student in studentList) {
+                      names.add(student.student_name);
+                    }
+                    print(names);
+                    final data = studentList[index];
+                    return Padding(
+                      padding: const EdgeInsets.only(left: 80.0, right: 80.0),
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.03,
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30.0),
+                              color: Color.fromARGB(255, 216, 214, 214),
+                            ),
+                            child: ListTile(
+                              leading: CircleAvatar(
+                                backgroundColor: Colors.teal,
+                                child: Text(
+                                  data.register_number.toString(),
+                                  style: TextStyle(
+                                    fontSize: 16, // Set the desired font size
+                                    fontWeight: FontWeight
+                                        .bold, // Set the desired font weight
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                              title: Center(
+                                child: Text(
+                                  data.student_name,
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.normal),
+                                ),
+                              ),
+                              //trailing: Text(data.domain),
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: ((context) {
+                                      return DisplayStudent(
+                                        register_number: data.register_number,
+                                        student_name: data.student_name,
+                                        // domain: data.domain,
+                                        // mobile: data.mobile,
+                                        // gender: data.gender,
+                                        email_id: data.email_id,
+                                        index: index,
+                                        batch_name: data.batch_name,
+                                      );
+                                    }),
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.03,
+                          )
+                        ],
+                      ),
+                    );
+                  },
+                  separatorBuilder: (context, index) {
+                    return const Divider();
+                  },
+                  itemCount: studentList.length,
+                )
+              : Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.5,
+                        width: MediaQuery.of(context).size.width * 0.6,
+                        child: Center(
+                          child: Lottie.asset(
+                            'images/animation_lk7wvj8i.json',
                           ),
                         ),
                       ),
-                      title: Center(
-                        child: Text(
-                          data.student_name,
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 18,
-                              fontWeight: FontWeight.normal),
-                        ),
-                      ),
-                      //trailing: Text(data.domain),
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: ((context) {
-                              return DisplayStudent(
-                                register_number: data.register_number,
-                                student_name: data.student_name,
-                                // domain: data.domain,
-                                // mobile: data.mobile,
-                                // gender: data.gender,
-                                email_id: data.email_id,
-                                index: index,
-                                batch_name: data.batch_name,
-                              );
-                            }),
-                          ),
-                        );
-                      },
-                    ),
+                      // const Text(
+                      //   'Data is empty',
+                      //   style: TextStyle(
+                      //     fontSize: 20,
+                      //     fontWeight: FontWeight.w600,
+                      //   ),
+                      // ),
+                    ],
                   ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.03,
-                  )
-                ],
-              ),
-            );
-          },
-          separatorBuilder: (context, index) {
-            return const Divider();
-          },
-          itemCount: studentList.length,
+                ),
         );
       },
     );

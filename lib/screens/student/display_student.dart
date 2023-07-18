@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../widgets/Text.dart';
-import 'edit_student.dart';
 
 class DisplayStudent extends StatelessWidget {
   final String register_number;
@@ -32,25 +31,26 @@ class DisplayStudent extends StatelessWidget {
         title: Text("$batch_name : Student Details"),
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               // IconButton(
               //   onPressed: () {
-              //     Navigator.of(context)
-              //         .push(MaterialPageRoute(builder: ((context) {
-              //       return EditStudent(
-              //         register_number: register_number,
-              //         student_name: student_name,
-              //         domain: domain,
-              //         mobile: mobile,
-              //         email_id: email_id,
-              //         gender: gender,
-              //         index: index,
-              //         batch_name: batch_name,
-              //       );
-              //     })));
+              //     // Navigator.of(context)
+              //     //     .push(MaterialPageRoute(builder: ((context) {
+              //     //   return EditStudent(
+              //     //     register_number: register_number,
+              //     //     student_name: student_name,
+              //     //     // domain: domain,
+              //     //     // mobile: mobile,
+              //     //     email_id: email_id,
+              //     //     // gender: gender,
+              //     //     index: index,
+              //     //     batch_name: batch_name,
+              //     //   );
+              //     // })));
               //   },
               //   icon: Icon(
               //     Icons.edit_outlined,
@@ -109,40 +109,34 @@ class DisplayStudent extends StatelessWidget {
               // ),
             ],
           ),
-          SingleChildScrollView(
-            child: Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.03,
-                    ),
-                    myText("Register Number -  $register_number"),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.03,
-                    ),
-                    myText("Name -  $student_name"),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.03,
-                    ),
-                    // myText("Domain -  $domain"),
-                    // SizedBox(
-                    //   height: MediaQuery.of(context).size.height * 0.03,
-                    // ),
-                    // myText("Mobile -  $mobile"),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.03,
-                    ),
-                    myText("Email -  $email_id"),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.03,
-                    ),
-                    // myText("Gender -  $gender"),
-                  ],
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.03,
                 ),
-              ),
+                myText("Register Number -  $register_number"),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.03,
+                ),
+                myText("Name -  $student_name"),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.03,
+                ),
+                // myText("Domain -  $domain"),
+                // SizedBox(
+                //   height: MediaQuery.of(context).size.height * 0.03,
+                // ),
+                // myText("Mobile -  $mobile"),
+
+                myText("Email -  $email_id"),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.03,
+                ),
+                // myText("Gender -  $gender"),
+              ],
             ),
           ),
         ],

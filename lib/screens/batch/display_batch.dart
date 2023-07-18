@@ -1,6 +1,5 @@
 import 'package:Daylog/screens/attendance/date_attendance.dart';
 import 'package:flutter/material.dart';
-import '../../widgets/TextHeading.dart';
 import '../../widgets/Text.dart';
 import '../../widgets/ElevatedButton.dart';
 import '../../db/batch_db/batchdb.dart';

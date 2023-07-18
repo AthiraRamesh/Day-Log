@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:hive/hive.dart';
@@ -19,8 +18,8 @@ Future<void> addAttendance(attendance_model value) async {
   final attendanceDB = await Hive.openBox<attendance_model>('attendance_db');
 
   await attendanceDB.add(value);
- 
-  attendanceListNotifier.notifyListeners();
+
+  //attendanceListNotifier.notifyListeners();
 }
 
 Future<void> getallattendance(String batch_name) async {

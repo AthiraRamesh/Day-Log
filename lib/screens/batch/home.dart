@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import './addbatch.dart';
 import './listbatch.dart';
@@ -17,11 +19,17 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.close),
+          onPressed: () {
+            exit(0);
+          },
+        ),
         automaticallyImplyLeading: false,
         centerTitle: true,
         title: Text("Batches"),
       ),
-      body: const ListBatchScreen(),
+      body: ListBatchScreen(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(

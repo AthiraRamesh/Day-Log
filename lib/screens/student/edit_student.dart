@@ -4,10 +4,10 @@ import '../../widgets/TextField.dart';
 class EditStudent extends StatefulWidget {
   final String register_number;
   final String student_name;
-  final String domain;
-  final String mobile;
+  // final String domain;
+  // final String mobile;
   final String email_id;
-  final String gender;
+  // final String gender;
   final int index;
   final String batch_name;
 
@@ -15,10 +15,10 @@ class EditStudent extends StatefulWidget {
     super.key,
     required this.register_number,
     required this.student_name,
-    required this.domain,
-    required this.mobile,
+    // required this.domain,
+    // required this.mobile,
     required this.email_id,
-    required this.gender,
+    // required this.gender,
     required this.index,
     required this.batch_name,
   });
@@ -30,19 +30,19 @@ class EditStudent extends StatefulWidget {
 class _EditStudentState extends State<EditStudent> {
   TextEditingController _register = TextEditingController();
   TextEditingController _nameOfStudent = TextEditingController();
-  TextEditingController _domain = TextEditingController();
-  TextEditingController _mobile = TextEditingController();
-  TextEditingController _gender = TextEditingController();
+  // TextEditingController _domain = TextEditingController();
+  // TextEditingController _mobile = TextEditingController();
+  // TextEditingController _gender = TextEditingController();
   TextEditingController _email = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    //_register = TextEditingController(text: widget.register_number);
+    _register = TextEditingController(text: widget.register_number);
     _nameOfStudent = TextEditingController(text: widget.student_name);
-    _domain = TextEditingController(text: widget.domain);
-    _mobile = TextEditingController(text: widget.mobile);
-    _gender = TextEditingController(text: widget.gender);
+    // _domain = TextEditingController(text: widget.domain);
+    // _mobile = TextEditingController(text: widget.mobile);
+    // _gender = TextEditingController(text: widget.gender);
     _email = TextEditingController(text: widget.email_id);
   }
 
@@ -73,30 +73,30 @@ class _EditStudentState extends State<EditStudent> {
             labelText: 'Student name',
             hintText: 'Enter student name',
           ),
-          const SizedBox(
-            height: 20,
-          ),
-          MyTextFormField(
-            controller: _domain,
-            labelText: 'Domain',
-            hintText: 'Enter domain',
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          MyTextFormField(
-            controller: _mobile,
-            labelText: 'Mobile Number',
-            hintText: 'Enter Mobile Number',
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          MyTextFormField(
-            controller: _gender,
-            labelText: 'Gender',
-            hintText: 'Enter Gender',
-          ),
+          // const SizedBox(
+          //   height: 20,
+          // ),
+          // MyTextFormField(
+          //   controller: _domain,
+          //   labelText: 'Domain',
+          //   hintText: 'Enter domain',
+          // ),
+          // const SizedBox(
+          //   height: 20,
+          // ),
+          // MyTextFormField(
+          //   controller: _mobile,
+          //   labelText: 'Mobile Number',
+          //   hintText: 'Enter Mobile Number',
+          // ),
+          // const SizedBox(
+          //   height: 20,
+          // ),
+          // MyTextFormField(
+          //   controller: _gender,
+          //   labelText: 'Gender',
+          //   hintText: 'Enter Gender',
+          // ),
           const SizedBox(
             height: 20,
           ),

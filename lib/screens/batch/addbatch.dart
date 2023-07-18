@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import './home.dart';
-import '../../widgets/TextHeading.dart';
 import '../../widgets/ElevatedButton.dart';
 import '../../widgets/TextField.dart';
 import '../../db/batch_db/batchdb.dart';
@@ -18,7 +17,6 @@ class _AddBatchScreenState extends State<AddBatchScreen> {
   final _semesterOfBatch = TextEditingController();
   final _CountOfStudent = TextEditingController();
   final _nameOfLead = TextEditingController();
-  final _phnOfLead = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

@@ -1,5 +1,5 @@
-import 'package:Brolog/db/student_db/studentdb.dart';
-import 'package:Brolog/models/student_model.dart';
+import 'package:Daylog/db/student_db/studentdb.dart';
+import 'package:Daylog/models/student_model.dart';
 import 'package:flutter/material.dart';
 import '../../widgets/TextHeading.dart';
 import '../../widgets/ElevatedButton.dart';
@@ -20,15 +20,13 @@ class AddStudentScreen extends StatefulWidget {
 class _AddBatchScreenState extends State<AddStudentScreen> {
   final _register = TextEditingController();
   final _nameOfStudent = TextEditingController();
-  final _domain = TextEditingController();
-  final _mobile = TextEditingController();
-  final _gender = TextEditingController();
+  // final _domain = TextEditingController();
+  // final _mobile = TextEditingController();
+  // final _gender = TextEditingController();
   final _email = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    print(size);
     String batch_name = widget.batch_name;
 
     return Scaffold(
@@ -37,27 +35,10 @@ class _AddBatchScreenState extends State<AddStudentScreen> {
         centerTitle: true,
         title: Text("Student Details"),
       ),
-      // appBar: AppBar(
-      //   leading: IconButton(
-      //     icon: Icon(Icons.arrow_back),
-      //     onPressed: () {
-      //       Navigator.push(
-      //         context,
-      //         MaterialPageRoute(
-      //             builder: (context) => HomeStudentScreen(
-      //                   batch_name: batch_name,
-      //                 )),
-      //       );
-      //       // Add the navigation logic to go back to the previous page
-      //     },
-      //   ),
-      //   centerTitle: true,
-      //   title: Text("Student Details"),
-      // ),
       body: SingleChildScrollView(
         child: Column(children: [
-          const SizedBox(
-            height: 20,
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.04,
           ),
           myTextView("$batch_name"),
           const SizedBox(
@@ -65,51 +46,51 @@ class _AddBatchScreenState extends State<AddStudentScreen> {
           ),
           MyTextFormField(
             controller: _register,
-            labelText: 'Register Number',
-            hintText: "Enterregister number",
+            labelText: ' Roll Number/ Register Number',
+            hintText: "Enter roll number",
           ),
-          const SizedBox(
-            height: 20,
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.04,
           ),
           MyTextFormField(
             controller: _nameOfStudent,
-            labelText: 'Student name',
+            labelText: 'Student Name',
             hintText: 'Enter student name',
           ),
-          const SizedBox(
-            height: 20,
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.04,
           ),
-          MyTextFormField(
-            controller: _domain,
-            labelText: 'Domain',
-            hintText: 'Enter domain',
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          MyTextFormField(
-            controller: _mobile,
-            labelText: 'Mobile Number',
-            hintText: 'Enter Mobile Number',
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          MyTextFormField(
-            controller: _gender,
-            labelText: 'Gender',
-            hintText: 'Enter Gender',
-          ),
-          const SizedBox(
-            height: 20,
-          ),
+          // MyTextFormField(
+          //   controller: _domain,
+          //   labelText: 'Domain',
+          //   hintText: 'Enter domain',
+          // ),
+          // const SizedBox(
+          //   height: 20,
+          // ),
+          // MyTextFormField(
+          //   controller: _mobile,
+          //   labelText: 'Mobile Number',
+          //   hintText: 'Enter Mobile Number',
+          // ),
+          // const SizedBox(
+          //   height: 20,
+          // ),
+          // MyTextFormField(
+          //   controller: _gender,
+          //   labelText: 'Gender',
+          //   hintText: 'Enter Gender',
+          // ),
+          // const SizedBox(
+          //   height: 20,
+          // ),
           MyTextFormField(
             controller: _email,
             labelText: 'Email id',
             hintText: 'Enter Email id',
           ),
-          const SizedBox(
-            height: 20,
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.04,
           ),
           MyElevatedButton(
             text: 'Save',
@@ -132,17 +113,17 @@ class _AddBatchScreenState extends State<AddStudentScreen> {
   Future<void> onStudentAddButtonClick() async {
     final RegisterNumber = _register.text.trim();
     final StudentName = _nameOfStudent.text.trim();
-    final Domain = _domain.text.trim();
-    final Mobile = _mobile.text.trim();
-    final Gender = _gender.text.trim();
+    // final Domain = _domain.text.trim();
+    // final Mobile = _mobile.text.trim();
+    // final Gender = _gender.text.trim();
     final Email = _email.text.trim();
     final batch_name = widget.batch_name;
 
     if (RegisterNumber.isEmpty ||
         StudentName.isEmpty ||
-        Domain.isEmpty ||
-        Mobile.isEmpty ||
-        Gender.isEmpty ||
+        // Domain.isEmpty ||
+        // Mobile.isEmpty ||
+        // Gender.isEmpty ||
         Email.isEmpty) {
       return;
     } else {
@@ -166,19 +147,19 @@ class _AddBatchScreenState extends State<AddStudentScreen> {
     final student = student_model(
         register_number: RegisterNumber,
         student_name: StudentName,
-        domain: Domain,
-        mobile: Mobile,
+        // domain: Domain,
+        // mobile: Mobile,
+        // gender: Gender,
         email_id: Email,
-        gender: Gender,
         batch_name: batch_name,
         isSelected: false,
         id: DateTime.now().millisecondsSinceEpoch.toString());
 
     addStudent(student);
     _nameOfStudent.clear();
-    _domain.clear();
-    _mobile.clear();
-    _gender.clear();
+    // _domain.clear();
+    // _mobile.clear();
+    // _gender.clear();
     _email.clear();
   }
 }

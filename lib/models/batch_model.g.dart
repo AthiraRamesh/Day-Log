@@ -19,29 +19,26 @@ class batchmodelAdapter extends TypeAdapter<batch_model> {
     return batch_model(
       id: fields[0] as int?,
       batch_name: fields[1] as String,
-      location: fields[2] as String,
+      semester: fields[2] as String,
       count: fields[3] as String,
       lead_name: fields[4] as String,
-      phnNumber: fields[5] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, batch_model obj) {
     writer
-      ..writeByte(6)
+      ..writeByte(5)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
       ..write(obj.batch_name)
       ..writeByte(2)
-      ..write(obj.location)
+      ..write(obj.semester)
       ..writeByte(3)
       ..write(obj.count)
       ..writeByte(4)
-      ..write(obj.lead_name)
-      ..writeByte(5)
-      ..write(obj.phnNumber);
+      ..write(obj.lead_name);
   }
 
   @override

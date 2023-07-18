@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../widgets/ElevatedButton.dart';
 import './login.dart';
+import 'batch/home.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
@@ -16,34 +17,40 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Column(children: [
-        SizedBox(
-         height: MediaQuery.of(context).size.height * 0.25,
-        ),
         Container(
           child: Column(
             children: [
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.2,
+              ),
               Text(
-                'BroLog',
+                'DayLog',
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
                   color: Colors.teal,
                 ),
               ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.08,
+              ),
               Image.asset(
-                'images/Welcome.png',
+                'images/start.png',
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.08,
               ),
               MyElevatedButton(
                 text: 'Let\'s get to work! ',
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => LoginScreen()),
+                    MaterialPageRoute(builder: (context) => HomeScreen()),
                   );
                 },
               ),
               SizedBox(
-               height: MediaQuery.of(context).size.height * 0.04,
+                height: MediaQuery.of(context).size.height * 0.04,
               ),
             ],
           ),

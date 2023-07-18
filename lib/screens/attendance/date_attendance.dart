@@ -1,4 +1,4 @@
-import 'package:Brolog/db/student_db/studentdb.dart';
+import 'package:Daylog/db/student_db/studentdb.dart';
 import 'package:flutter/material.dart';
 import '../../widgets/ElevatedButton.dart';
 import 'package:table_calendar/table_calendar.dart';
@@ -31,7 +31,8 @@ class _DateAttendanceScreenState extends State<DateAttendanceScreen> {
     getallstudents(batch_name);
     return Scaffold(
         backgroundColor: Colors.white,
-        appBar: AppBar(leading:    IconButton(
+        appBar: AppBar(
+          leading: IconButton(
             icon: Icon(Icons.home),
             onPressed: () {
               Navigator.push(
@@ -42,15 +43,14 @@ class _DateAttendanceScreenState extends State<DateAttendanceScreen> {
               );
             },
           ),
-     
           automaticallyImplyLeading: false,
           centerTitle: true,
-          title: Text("$batch_name : Attendance"), 
-          
+          title: Text("$batch_name : Attendance"),
         ),
         body: Column(
           children: [
-            Container( height: MediaQuery.of(context).size.height * 0.5,
+            Container(
+              height: MediaQuery.of(context).size.height * 0.5,
               child: TableCalendar(
                 headerStyle: HeaderStyle(),
                 selectedDayPredicate: (day) => isSameDay(day, today),
@@ -61,7 +61,7 @@ class _DateAttendanceScreenState extends State<DateAttendanceScreen> {
               ),
             ),
             SizedBox(
-               height: MediaQuery.of(context).size.height * 0.04,
+              height: MediaQuery.of(context).size.height * 0.04,
             ),
             MyElevatedButton(
               text: 'Take Attendance',
@@ -71,12 +71,10 @@ class _DateAttendanceScreenState extends State<DateAttendanceScreen> {
                   MaterialPageRoute(
                       builder: (context) => HomeAttendanceScreen(
                           selected_date: today,
-                          batch_name: '${widget.batch_name}'
-                          )),
+                          batch_name: '${widget.batch_name}')),
                 );
               },
             ),
-           
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.04,
             ),

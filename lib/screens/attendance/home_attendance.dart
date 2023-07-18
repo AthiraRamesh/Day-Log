@@ -1,5 +1,5 @@
-import 'package:Brolog/db/student_db/studentdb.dart';
-import 'package:Brolog/models/attendance_model.dart';
+import 'package:Daylog/db/student_db/studentdb.dart';
+import 'package:Daylog/models/attendance_model.dart';
 import 'package:flutter/material.dart';
 import '../../db/attendance_db/attendancedb.dart';
 import '../../models/student_model.dart';
@@ -15,16 +15,13 @@ class HomeAttendanceScreen extends StatefulWidget {
     required this.batch_name,
     required this.selected_date,
     this.isSelected = false,
-   
   });
 
   @override
   State<HomeAttendanceScreen> createState() => _HomeAttendanceScreenState();
 }
 
-
 class _HomeAttendanceScreenState extends State<HomeAttendanceScreen> {
-
   List<dynamic> absent = [];
   List<dynamic> present = [];
 
@@ -50,14 +47,12 @@ class _HomeAttendanceScreenState extends State<HomeAttendanceScreen> {
               for (var student in studentList) {
                 names.add(student.student_name);
               }
-              
+
               return Padding(
                 padding: const EdgeInsets.only(left: 50.0, right: 50.0),
                 child: Column(
                   children: [
-                    SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.01
-                  ),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.01),
                     Card(
                       // The color depends on this is selected or not
                       color: data.isSelected == true
@@ -113,8 +108,8 @@ class _HomeAttendanceScreenState extends State<HomeAttendanceScreen> {
                       ),
                     ),
                     SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.01,
-                  ),
+                      height: MediaQuery.of(context).size.height * 0.01,
+                    ),
                   ],
                 ),
               );
@@ -124,12 +119,16 @@ class _HomeAttendanceScreenState extends State<HomeAttendanceScreen> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {onAttendanceAddButtonClick();
+        onPressed: () {
+          onAttendanceAddButtonClick();
           Navigator.push(
             context,
             MaterialPageRoute(
               builder: (context) {
-                return GraphAttendanceScreen(absent: absent, present: present,batch_name: '${widget.batch_name}');
+                return GraphAttendanceScreen(
+                    absent: absent,
+                    present: present,
+                    batch_name: '${widget.batch_name}');
               },
             ),
           );
@@ -150,24 +149,21 @@ class _HomeAttendanceScreenState extends State<HomeAttendanceScreen> {
   }
 
   Future<void> onAttendanceAddButtonClick() async {
-   
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
         behavior: SnackBarBehavior.floating,
         margin: EdgeInsets.all(20),
-        content: Text("Save Attendance Successfully!"), 
+        content: Text("Save Attendance Successfully!"),
       ),
     );
     DateTime selected_date = widget.selected_date;
     // List<String> Absent = absent;
     // List<String> Present = present;
 
-
-    final attendance = attendance_model(
-      date: selected_date
-      // absent: Absent,
-      // present: Present
-    );
+    final attendance = attendance_model(date: selected_date
+        // absent: Absent,
+        // present: Present
+        );
     addAttendance(attendance);
   }
 }

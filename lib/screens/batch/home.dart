@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../widgets/NavDrawer.dart';
 import './addbatch.dart';
 import './listbatch.dart';
 import '../../db/batch_db/batchdb.dart';
@@ -17,8 +16,8 @@ class _HomeScreenState extends State<HomeScreen> {
     getallbatches();
     return Scaffold(
       backgroundColor: Colors.white,
-      drawer: NavDrawer(),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         centerTitle: true,
         title: Text("Batches"),
       ),

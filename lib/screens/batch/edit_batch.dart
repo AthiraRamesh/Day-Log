@@ -8,19 +8,19 @@ import 'home.dart';
 
 class EditBatch extends StatefulWidget {
   final String batch_name;
-  final String location;
+  final String semester;
   final String count;
   final String lead_name;
-  final String phnNumber;
+  //final String phnNumber;
   final int index;
 
   const EditBatch({
     super.key,
     required this.batch_name,
-    required this.location,
+    required this.semester,
     required this.count,
     required this.lead_name,
-    required this.phnNumber,
+    //required this.phnNumber,
     required this.index,
   });
 
@@ -30,20 +30,20 @@ class EditBatch extends StatefulWidget {
 
 class _EditBatchState extends State<EditBatch> {
   TextEditingController _nameOfBatch = TextEditingController();
-  TextEditingController _locationOfBatch = TextEditingController();
+  TextEditingController _semesterOfBatch = TextEditingController();
   TextEditingController _CountOfStudent = TextEditingController();
   TextEditingController _nameOfLead = TextEditingController();
-  TextEditingController _phnOfLead = TextEditingController();
+  // TextEditingController _phnOfLead = TextEditingController();
 
   @override
   void initState() {
     super.initState();
 
     _nameOfBatch = TextEditingController(text: widget.batch_name);
-    _locationOfBatch = TextEditingController(text: widget.location);
+    _semesterOfBatch = TextEditingController(text: widget.semester);
     _CountOfStudent = TextEditingController(text: widget.count);
     _nameOfLead = TextEditingController(text: widget.lead_name);
-    _phnOfLead = TextEditingController(text: widget.phnNumber);
+    // _phnOfLead = TextEditingController(text: widget.phnNumber);
   }
 
   @override
@@ -57,53 +57,53 @@ class _EditBatchState extends State<EditBatch> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-              SizedBox(
-               height: MediaQuery.of(context).size.height * 0.04,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.04,
             ),
             MyTextFormField(
               controller: _nameOfBatch,
               labelText: 'Batch name',
               hintText: 'Enter batch name',
             ),
-                 SizedBox(
-               height: MediaQuery.of(context).size.height * 0.03,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.03,
             ),
             MyTextFormField(
-              controller: _locationOfBatch,
-              labelText: 'Location',
-              hintText: 'Enter location',
+              controller: _semesterOfBatch,
+              labelText: 'Semester',
+              hintText: 'Enter Semester',
             ),
-                SizedBox(
-               height: MediaQuery.of(context).size.height * 0.03,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.03,
             ),
             MyTextFormField(
               controller: _CountOfStudent,
               labelText: 'Enrollment',
               hintText: 'Enter number of students',
             ),
-                 SizedBox(
-               height: MediaQuery.of(context).size.height * 0.03,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.03,
             ),
-            myTextView("Batch Leader Details"),
-                 SizedBox(
-               height: MediaQuery.of(context).size.height * 0.03,
-            ),
+            // myTextView("Batch Leader Details"),
+            // SizedBox(
+            //   height: MediaQuery.of(context).size.height * 0.03,
+            // ),
             MyTextFormField(
               controller: _nameOfLead,
-              labelText: 'Name',
+              labelText: 'Batch Leader\'s Name',
               hintText: 'Enter Batch Leader\'s name',
             ),
-                SizedBox(
-               height: MediaQuery.of(context).size.height * 0.03,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.03,
             ),
-            MyTextFormField(
-              controller: _phnOfLead,
-              labelText: 'Mobile Number',
-              hintText: 'Enter Batch Leader\'s phone number',
-            ),
-                SizedBox(
-               height: MediaQuery.of(context).size.height * 0.03,
-            ),
+            // MyTextFormField(
+            //   controller: _phnOfLead,
+            //   labelText: 'Mobile Number',
+            //   hintText: 'Enter Batch Leader\'s phone number',
+            // ),
+            // SizedBox(
+            //   height: MediaQuery.of(context).size.height * 0.03,
+            // ),
             MyElevatedButton(
               text: 'Save',
               onPressed: () {
@@ -123,10 +123,10 @@ class _EditBatchState extends State<EditBatch> {
   Future<void> onEditSaveButton(ctx) async {
     final batchmodel = batch_model(
       batch_name: _nameOfBatch.text,
-      location: _locationOfBatch.text,
+      semester: _semesterOfBatch.text,
       count: _CountOfStudent.text,
       lead_name: _nameOfLead.text,
-      phnNumber: _phnOfLead.text,
+      //phnNumber: _phnOfLead.text,
     );
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(

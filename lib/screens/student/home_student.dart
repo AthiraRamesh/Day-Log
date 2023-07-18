@@ -1,5 +1,6 @@
-import 'package:Brolog/db/student_db/studentdb.dart';
+import 'package:Daylog/db/student_db/studentdb.dart';
 import 'package:flutter/material.dart';
+import '../attendance/date_attendance.dart';
 import '../batch/home.dart';
 import './liststudent.dart';
 import './addstudent.dart';
@@ -21,42 +22,52 @@ class _HomeStudentScreenState extends State<HomeStudentScreen> {
     String batch_name = widget.batch_name;
     getallstudents(batch_name);
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        centerTitle: true,
-        title: GestureDetector(
-          onTap: () {
-            Navigator.pushReplacement(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          leading: IconButton(
+            icon: Icon(Icons.home),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => HomeScreen(),
+                ),
+              );
+            },
+          ),
+          centerTitle: true,
+          automaticallyImplyLeading: false,
+          title: GestureDetector(
+            onTap: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => HomeScreen(),
+                ),
+              );
+            },
+            child: Text("$batch_name : Student Details"),
+          ),
+        ),
+        body: const ListStudentScreen(),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => HomeScreen(),
+                builder: (context) {
+                  return AddStudentScreen(batch_name: batch_name);
+                },
               ),
             );
           },
-          child: Text("$batch_name : Student Details"),
-        ),
-      ),
-
-      body: const ListStudentScreen(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) {
-                return AddStudentScreen(batch_name: batch_name);
-              },
-            ),
-          );
-        },
-        tooltip: 'Add Students',
-        backgroundColor: Color.fromARGB(255, 213, 71, 71),
-        child: const Icon(
-          Icons.add,
-          size: 40,
-          color: Colors.white,
-        ),
-      )
-    );
+          tooltip: 'Add Students',
+          backgroundColor: Color.fromARGB(255, 213, 71, 71),
+          child: const Icon(
+            Icons.add,
+            size: 40,
+            color: Colors.white,
+          ),
+        ));
   }
 }

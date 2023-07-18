@@ -1,4 +1,4 @@
-import 'package:Brolog/db/batch_db/batchdb.dart';
+import 'package:Daylog/db/batch_db/batchdb.dart';
 import 'package:flutter/material.dart';
 import '../../models/batch_model.dart';
 import 'display_batch.dart';
@@ -19,7 +19,7 @@ class ListBatchScreen extends StatelessWidget {
               child: Column(
                 children: [
                   SizedBox(
-                     height: MediaQuery.of(context).size.height * 0.02,
+                    height: MediaQuery.of(context).size.height * 0.02,
                   ),
                   Container(
                     decoration: BoxDecoration(
@@ -43,20 +43,20 @@ class ListBatchScreen extends StatelessWidget {
                             builder: ((context) {
                               return DisplayBatch(
                                 batch_name: data.batch_name,
-                                location: data.location,
+                                semester: data.semester,
                                 count: data.count,
                                 lead_name: data.lead_name,
-                                phnNumber: data.phnNumber,
+                                //phnNumber: data.phnNumber,
                                 index: index,
                               );
                             }),
                           ),
                         );
-                      },  
+                      },
                     ),
                   ),
                   SizedBox(
-                     height: MediaQuery.of(context).size.height * 0.02,
+                    height: MediaQuery.of(context).size.height * 0.02,
                   ),
                 ],
               ),

@@ -10,7 +10,7 @@ class batch_model {
   final String batch_name;
 
   @HiveField(2)
-  final String location;
+  final String semester;
 
   @HiveField(3)
   final String count;
@@ -18,16 +18,12 @@ class batch_model {
   @HiveField(4)
   final String lead_name;
 
-  @HiveField(5)
-  final String phnNumber;
-
   batch_model({
     this.id,
     required this.batch_name,
-    required this.location,
+    required this.semester,
     required this.count,
     required this.lead_name,
-    required this.phnNumber,
   });
 
   get propertyToSort => null;

@@ -20,36 +20,27 @@ class studentmodelAdapter extends TypeAdapter<student_model> {
       id: fields[0] as String?,
       register_number: fields[1] as String,
       student_name: fields[2] as String,
-      domain: fields[3] as String,
-      mobile: fields[4] as String,
-      email_id: fields[5] as String,
-      gender: fields[6] as String,
-      batch_name: fields[7] as String,
-      isSelected: fields[8] as bool,
+      email_id: fields[4] as String,
+      batch_name: fields[5] as String,
+      isSelected: fields[6] as bool,
     );
   }
 
   @override
   void write(BinaryWriter writer, student_model obj) {
     writer
-      ..writeByte(9)
+      ..writeByte(6)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
       ..write(obj.register_number)
       ..writeByte(2)
       ..write(obj.student_name)
-      ..writeByte(3)
-      ..write(obj.domain)
       ..writeByte(4)
-      ..write(obj.mobile)
-      ..writeByte(5)
       ..write(obj.email_id)
-      ..writeByte(6)
-      ..write(obj.gender)
-      ..writeByte(7)
+      ..writeByte(5)
       ..write(obj.batch_name)
-      ..writeByte(8)
+      ..writeByte(6)
       ..write(obj.isSelected);
   }
 

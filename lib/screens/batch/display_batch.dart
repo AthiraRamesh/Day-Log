@@ -1,4 +1,4 @@
-import 'package:Brolog/screens/attendance/date_attendance.dart';
+import 'package:Daylog/screens/attendance/date_attendance.dart';
 import 'package:flutter/material.dart';
 import '../../widgets/TextHeading.dart';
 import '../../widgets/Text.dart';
@@ -9,18 +9,18 @@ import 'edit_batch.dart';
 
 class DisplayBatch extends StatefulWidget {
   final String batch_name;
-  final String location;
+  final String semester;
   final String count;
   final String lead_name;
-  final String phnNumber;
+  //final String phnNumber;
   final int index;
   const DisplayBatch({
     super.key,
     required this.batch_name,
-    required this.location,
+    required this.semester,
     required this.count,
     required this.lead_name,
-    required this.phnNumber,
+    //required this.phnNumber,
     required this.index,
   });
 
@@ -39,6 +39,9 @@ class _DisplayBatchState extends State<DisplayBatch> {
       ),
       body: Column(
         children: [
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.02,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -48,10 +51,10 @@ class _DisplayBatchState extends State<DisplayBatch> {
                       .push(MaterialPageRoute(builder: ((context) {
                     return EditBatch(
                       batch_name: widget.batch_name,
-                      location: widget.location,
+                      semester: widget.semester,
                       count: widget.count,
                       lead_name: widget.lead_name,
-                      phnNumber: widget.phnNumber,
+                      //phnNumber: widget.phnNumber,
                       index: widget.index,
                     );
                   })));
@@ -77,7 +80,7 @@ class _DisplayBatchState extends State<DisplayBatch> {
                             ),
                           ),
                           content: const Text(
-                            "Do you want to delete this student",
+                            "Do you want to delete this batch",
                           ),
                           actions: [
                             TextButton(
@@ -117,36 +120,35 @@ class _DisplayBatchState extends State<DisplayBatch> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 myText("Batch Name -  ${widget.batch_name}"),
-                 SizedBox(
-               height: MediaQuery.of(context).size.height * 0.02,
-            ),
-                myText("Location -  ${widget.location}"),
-                     SizedBox(
-               height: MediaQuery.of(context).size.height * 0.02,
-            ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.03,
+                ),
+                myText("Semester -  ${widget.semester}"),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.03,
+                ),
                 myText("Number of students -  ${widget.count}"),
-                    SizedBox(
-               height: MediaQuery.of(context).size.height * 0.02,
-            ),
-                myTextView("Batch Leader\'s Details "),
-                    SizedBox(
-               height: MediaQuery.of(context).size.height * 0.02,
-            ),
-                myText("Name -  ${widget.lead_name}"),
-                      SizedBox(
-               height: MediaQuery.of(context).size.height * 0.02,
-            ),
-                myText("Mobile Number - ${widget.phnNumber}"),
-                      SizedBox(
-               height: MediaQuery.of(context).size.height * 0.02,
-            ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.03,
+                ),
+                // myTextView("Batch Leader\'s Details "),
+                // SizedBox(
+                //   height: MediaQuery.of(context).size.height * 0.02,
+                // ),
+                myText("Batch Leader\'s name -  ${widget.lead_name}"),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.03,
+                ),
+                // myText("Mobile Number - ${widget.phnNumber}"),
+                // SizedBox(
+                //   height: MediaQuery.of(context).size.height * 0.02,
+                // ),
               ],
             ),
           ),
-   
-               SizedBox(
-               height: MediaQuery.of(context).size.height * 0.02,
-            ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.04,
+          ),
           MyElevatedButton(
             text: 'Students Details',
             onPressed: () {
@@ -158,9 +160,9 @@ class _DisplayBatchState extends State<DisplayBatch> {
               );
             },
           ),
-                SizedBox(
-               height: MediaQuery.of(context).size.height * 0.04,
-            ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.06,
+          ),
           MyElevatedButton(
             text: 'Attendance',
             onPressed: () {
@@ -178,7 +180,6 @@ class _DisplayBatchState extends State<DisplayBatch> {
   }
 
   popoutfuction(BuildContext context) {
-   
     return Navigator.pushNamed(context, '/home');
   }
 }

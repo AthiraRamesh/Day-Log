@@ -26,10 +26,10 @@ class ListStudentScreen extends StatelessWidget {
               padding: const EdgeInsets.only(left: 80.0, right: 80.0),
               child: Column(
                 children: [
-            SizedBox(
-               height: MediaQuery.of(context).size.height * 0.03,
-            ),
-                  Container( 
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.03,
+                  ),
+                  Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30.0),
                       color: Color.fromARGB(255, 216, 214, 214),
@@ -65,10 +65,10 @@ class ListStudentScreen extends StatelessWidget {
                               return DisplayStudent(
                                 register_number: data.register_number,
                                 student_name: data.student_name,
-                                domain: data.domain,
-                                mobile: data.mobile,
+                                // domain: data.domain,
+                                // mobile: data.mobile,
+                                // gender: data.gender,
                                 email_id: data.email_id,
-                                gender: data.gender,
                                 index: index,
                                 batch_name: data.batch_name,
                               );
@@ -78,9 +78,9 @@ class ListStudentScreen extends StatelessWidget {
                       },
                     ),
                   ),
-            SizedBox(
-               height: MediaQuery.of(context).size.height * 0.03,
-            )
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.03,
+                  )
                 ],
               ),
             );

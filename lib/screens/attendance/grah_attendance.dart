@@ -25,39 +25,35 @@ class _GraphAttendanceScreenState extends State<GraphAttendanceScreen> {
   // final String batch_name;
   @override
   Widget build(BuildContext context) {
-
-   
-
     List<dynamic> absent_list = widget.absent;
     double absent_length = absent_list.length.toDouble();
-  
-     List<dynamic> present_list = widget.present;
+
+    List<dynamic> present_list = widget.present;
     double present_length = present_list.length.toDouble();
-  
+
     Map<String, double> dataMap = {
       "Present": present_length,
       "Absent": absent_length,
-      
     };
     //String batch_name = batch_name;
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(leading: IconButton(
-            icon: Icon(Icons.home),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => DateAttendanceScreen(
-                        batch_name: '${widget.batch_name}'),
-                ),
-              );
-            },
-          ),
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.home),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) =>
+                    DateAttendanceScreen(batch_name: '${widget.batch_name}'),
+              ),
+            );
+          },
+        ),
         centerTitle: true,
         title: Text("Pie Chart - Attendance"),
         automaticallyImplyLeading: false,
-        
       ),
       body: Column(
         children: [
@@ -69,26 +65,29 @@ class _GraphAttendanceScreenState extends State<GraphAttendanceScreen> {
               child: PieChart(
                 dataMap: dataMap,
                 chartRadius: MediaQuery.of(context).size.width / 1.7,
-                legendOptions: LegendOptions(legendPosition: LegendPosition.bottom),
+                legendOptions:
+                    LegendOptions(legendPosition: LegendPosition.bottom),
                 chartValuesOptions:
                     ChartValuesOptions(showChartValuesInPercentage: true),
               ),
             ),
-          ),  
+          ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.15,
           ),
           MyElevatedButton(
-              text: 'View Attendance',
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => AttendanceStatus(present:present_list,absent: absent_list,
-                          batch_name: '${widget.batch_name}')),
-                );
-              },
-            ),
+            text: 'View Attendance',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => AttendanceStatus(
+                        present: present_list,
+                        absent: absent_list,
+                        batch_name: '${widget.batch_name}')),
+              );
+            },
+          ),
         ],
       ),
     );

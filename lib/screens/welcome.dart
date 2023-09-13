@@ -34,7 +34,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 height: MediaQuery.of(context).size.height * 0.08,
               ),
               Image.asset(
-                'images/start.png',
+                'images/Welcome.png',
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.08,

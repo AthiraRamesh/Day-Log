@@ -1,4 +1,4 @@
-package com.example.brototype_attendancemanager
+package com.example.Day_log
 
 import io.flutter.embedding.android.FlutterActivity
 

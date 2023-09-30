@@ -1,4 +1,4 @@
-import 'package:Daylog/screens/attendance/date_attendance.dart';
+import 'package:Day_log/screens/attendance/date_attendance.dart';
 import 'package:flutter/material.dart';
 import '../../widgets/Text.dart';
 import '../../widgets/ElevatedButton.dart';

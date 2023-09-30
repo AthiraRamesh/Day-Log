@@ -1,4 +1,4 @@
-import 'package:Daylog/db/student_db/studentdb.dart';
+import 'package:Day_log/db/student_db/studentdb.dart';
 import 'package:flutter/material.dart';
 import '../../widgets/ElevatedButton.dart';
 import 'package:table_calendar/table_calendar.dart';

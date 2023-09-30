@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.brototype_attendancemanager">
+    package="com.example.Day_log">
    <application
-        android:label="brototype_attendancemanager"
+        android:label="Day_log"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

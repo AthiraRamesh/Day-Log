@@ -1,5 +1,5 @@
-import 'package:Daylog/db/student_db/studentdb.dart';
-import 'package:Daylog/models/student_model.dart';
+import 'package:Day_log/db/student_db/studentdb.dart';
+import 'package:Day_log/models/student_model.dart';
 import 'package:flutter/material.dart';
 import '../../widgets/TextHeading.dart';
 import '../../widgets/ElevatedButton.dart';

@@ -1,4 +1,4 @@
-import 'package:Daylog/db/student_db/studentdb.dart';
+import 'package:Day_log/db/student_db/studentdb.dart';
 import 'package:flutter/material.dart';
 import '../batch/home.dart';
 import './liststudent.dart';

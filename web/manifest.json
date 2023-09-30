@@ -1,6 +1,6 @@
 {
-    "name": "brototype_attendancemanager",
-    "short_name": "brototype_attendancemanager",
+    "name": "Day_log",
+    "short_name": "Day_log",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

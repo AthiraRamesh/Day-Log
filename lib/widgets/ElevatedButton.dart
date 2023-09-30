@@ -11,10 +11,10 @@ class MyElevatedButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 40),
       child: SizedBox(
-        width: double.infinity,
+        //width: double.infinity,
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-            minimumSize: const Size(280, 55),
+            minimumSize: const Size(150, 55),
             textStyle: const TextStyle(fontSize: 20),
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),

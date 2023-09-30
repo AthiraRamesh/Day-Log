@@ -1,4 +1,4 @@
-# brototype_attendancemanager
+# Day_log
 
 A new Flutter project.
 

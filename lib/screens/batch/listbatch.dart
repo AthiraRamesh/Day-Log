@@ -1,4 +1,4 @@
-import 'package:Daylog/db/batch_db/batchdb.dart';
+import 'package:Day_log/db/batch_db/batchdb.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import '../../models/batch_model.dart';

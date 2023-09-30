@@ -1,3 +1,4 @@
+import 'package:Day_log/screens/login.dart';
 import 'package:flutter/material.dart';
 import '../widgets/ElevatedButton.dart';
 import 'batch/home.dart';
@@ -22,8 +23,22 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.2,
               ),
+              Image.asset(
+                'images/Welcome.png',
+              ),
               Text(
-                'DayLog',
+                'Mark',
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.teal,
+                ),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.03,
+              ),
+              Text(
+                'Your Day',
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
@@ -33,18 +48,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.08,
               ),
-              Image.asset(
-                'images/start.png',
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.08,
-              ),
               MyElevatedButton(
-                text: 'Let\'s get to work! ',
+                text: 'Get Started',
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HomeScreen()),
+                    MaterialPageRoute(builder: (context) => LoginScreen()),
                   );
                 },
               ),
